@@ -10,9 +10,9 @@
 		CE96CCFA2CE66CBE002B655B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96CCF92CE66CBE002B655B /* AppDelegate.swift */; };
 		CE96CCFC2CE66CBE002B655B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96CCFB2CE66CBE002B655B /* SceneDelegate.swift */; };
 		CE96CCFE2CE66CBE002B655B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE96CCFD2CE66CBE002B655B /* MainViewController.swift */; };
-		CE96CD042CE66CBE002B655B /* SimpleWeather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE96CD022CE66CBE002B655B /* SimpleWeather.xcdatamodeld */; };
 		CE96CD062CE66CC0002B655B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE96CD052CE66CC0002B655B /* Assets.xcassets */; };
 		CE96CD092CE66CC0002B655B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE96CD072CE66CC0002B655B /* LaunchScreen.storyboard */; };
+		CEB631992CE88916005AB0E7 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB631982CE88916005AB0E7 /* UILabel + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +20,10 @@
 		CE96CCF92CE66CBE002B655B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE96CCFB2CE66CBE002B655B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CE96CCFD2CE66CBE002B655B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		CE96CD032CE66CBE002B655B /* SimpleWeather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleWeather.xcdatamodel; sourceTree = "<group>"; };
 		CE96CD052CE66CC0002B655B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE96CD082CE66CC0002B655B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE96CD0A2CE66CC0002B655B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEB631982CE88916005AB0E7 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,7 @@
 				CE96CD052CE66CC0002B655B /* Assets.xcassets */,
 				CE96CD072CE66CC0002B655B /* LaunchScreen.storyboard */,
 				CE96CD0A2CE66CC0002B655B /* Info.plist */,
-				CE96CD022CE66CBE002B655B /* SimpleWeather.xcdatamodeld */,
+				CEB631982CE88916005AB0E7 /* UILabel + Extension.swift */,
 			);
 			path = SimpleWeather;
 			sourceTree = "<group>";
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE96CD042CE66CBE002B655B /* SimpleWeather.xcdatamodeld in Sources */,
+				CEB631992CE88916005AB0E7 /* UILabel + Extension.swift in Sources */,
 				CE96CCFE2CE66CBE002B655B /* MainViewController.swift in Sources */,
 				CE96CCFA2CE66CBE002B655B /* AppDelegate.swift in Sources */,
 				CE96CCFC2CE66CBE002B655B /* SceneDelegate.swift in Sources */,
@@ -350,19 +350,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		CE96CD022CE66CBE002B655B /* SimpleWeather.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				CE96CD032CE66CBE002B655B /* SimpleWeather.xcdatamodel */,
-			);
-			currentVersion = CE96CD032CE66CBE002B655B /* SimpleWeather.xcdatamodel */;
-			path = SimpleWeather.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = CE96CCEE2CE66CBE002B655B /* Project object */;
 }
