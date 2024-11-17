@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MainViewController: UIViewController {
     
@@ -29,11 +30,19 @@ class MainViewController: UIViewController {
     private var city: String = "Ekaterinburg"
     private var date: String = "14 Nov 2024"
     
+    private let locationManager = CLLocationManager() //менеджер по определению геолокации
+    private var currentLocation: CLLocation? //текущее местоположение
+    private var latitude: CLLocationDegrees? //ширина
+    private var longtitude: CLLocationDegrees? //долгота
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+     //   setupWeather()
+   
         setupView()
-        setupWeather()
+  
         setupConstraints()
+        startLocationUpdate()
     }
     
     private func setupView() {
@@ -53,9 +62,27 @@ class MainViewController: UIViewController {
         tempMinLabel.text = "мин.: " + min
         tempMaxLabel.text = "мaкс.: " + max
         tempLabel.text = temp + " Cº"
-        locationLabel.text = city
+       // locationLabel.text = city
         dateLabel.text = date
     }
+    
+    private func startLocationUpdate() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest //выбираем точность геопозиции
+        locationManager.requestWhenInUseAuthorization() //запрос авторизации
+        locationManager.startUpdatingLocation() //отправляем зщапрос на обновление геоданных
+        
+        //не забываем добавить пермишен(запрос разрешения у пользователя) на использование геоданных
+    }
+    
+    private func fetchWeatherFromCoordinates(lat: String, long: String) {
+        WeatherNetwork.shared.fetchCurrentWeather(lat: lat, long: long) { (weather) in
+            DispatchQueue.main.async {
+                self.locationLabel.text = weather.name
+            }
+        }
+    }
+    
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -70,7 +97,7 @@ class MainViewController: UIViewController {
             symbolImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             symbolImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             symbolImageView.widthAnchor.constraint(equalToConstant: view.frame.width / 2),
-            symbolImageView.heightAnchor.constraint(equalToConstant: view.frame.width / 3),
+            symbolImageView.heightAnchor.constraint(equalToConstant: view.frame.width / 2),
             
             tempLabel.topAnchor.constraint(equalTo: symbolImageView.bottomAnchor, constant: 20),
             tempLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -81,5 +108,26 @@ class MainViewController: UIViewController {
             tempMaxLabel.topAnchor.constraint(equalTo: tempMinLabel.bottomAnchor, constant: 2),
             tempMaxLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+    }
+}
+
+extension MainViewController: CLLocationManagerDelegate {
+    //получаем данные геопозиции и присваиваем значения нашим переменным (широта/долгота)
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        manager.stopUpdatingLocation() //останавлриваем обновление менеджера
+        manager.delegate = nil
+        
+        //присваиваем значения координатам, которые получили при обновлении геопозиции
+        let location = locations[0].coordinate
+        latitude = location.latitude
+        longtitude = location.longitude
+        
+        
+        print("LOCATION:", location)
+        print("latitude:", latitude)
+        print("longtitude:", longtitude)
+        
+        fetchWeatherFromCoordinates(lat: latitude!.description, long: longtitude!.description)
     }
 }
