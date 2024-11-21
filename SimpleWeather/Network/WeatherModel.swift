@@ -27,7 +27,7 @@ struct Coord: Codable {
 
 // MARK: - Main
 struct Main: Codable {
-    let temp, tempMin, tempMax: Double
+    let temp, tempMin, tempMax: Float
 
     enum CodingKeys: String, CodingKey {
         case temp
