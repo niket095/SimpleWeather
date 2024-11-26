@@ -2,7 +2,7 @@
 //  Float + Extension.swift
 //  SimpleWeather
 //
-//  Created by Tim Akhmetov on 19.11.2024.
+//  Created by Nikita Putilov on 19.11.2024.
 //
 
 import Foundation
@@ -13,8 +13,8 @@ extension Float {
      - * self - на это значние сдвигается точна ВПРАВО
      - floor - округляет вниз до ближайшего числа
      - второй pow(10.0, Float(val))) - возвращает десятичная точка на место, сдвигая ее влево
-     
     */
+    
     func roundFloat(_ val: Int = 1) -> Float {
         Float(floor(pow(10.0, Float(val)) * self) / pow(10.0, Float(val)))
     }

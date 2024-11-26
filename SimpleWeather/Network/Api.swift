@@ -2,7 +2,7 @@
 //  Api.swift
 //  SimpleWeather
 //
-//  Created by Tim Akhmetov on 14.11.2024.
+//  Created by Nikita Putilov on 14.11.2024.
 //
 
 import Foundation

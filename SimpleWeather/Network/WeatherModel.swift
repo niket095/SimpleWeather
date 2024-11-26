@@ -2,7 +2,7 @@
 //  WeatherModel.swift
 //  SimpleWeather
 //
-//  Created by Tim Akhmetov on 16.11.2024.
+//  Created by Nikita Putilov on 16.11.2024.
 //
 //
 //   let welcome = try? JSONDecoder().decode(Welcome.self, from: jsonData)
