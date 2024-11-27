@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  SimpleWeather
 //
-//  Created by User on 14.11.2024.
+//  Created by Nikita Putilov on 14.11.2024.
 //
 
 import UIKit
