@@ -22,12 +22,12 @@ class MainViewController: UIViewController {
         return imageView
     }()
     
-    private let placeLabel = UILabel(text: "", color: .darkGray, font: UIFont.boldSystemFont(ofSize: 35))
+    private let placeLabel = UILabel(text: "", color: .white, font: UIFont.boldSystemFont(ofSize: 35))
     private let locationLabel = UILabel(text: "", color: .black, font: UIFont.boldSystemFont(ofSize: 45))
-    private let dateLabel = UILabel(text: "", color: .gray, font: UIFont.boldSystemFont(ofSize: 25))
+    private let dateLabel = UILabel(text: "", color: .white, font: UIFont.boldSystemFont(ofSize: 25))
     private let descriptionLabel = UILabel(text: "", color: .black, font: UIFont.boldSystemFont(ofSize: 40))
     private let tempLabel = UILabel(text: "", color: .black, font: UIFont.boldSystemFont(ofSize: 80))
-    private let tempMaxMinLabel = UILabel(text: "", color: .gray, font: UIFont.boldSystemFont(ofSize: 25))
+    private let tempMaxMinLabel = UILabel(text: "", color: .white, font: UIFont.boldSystemFont(ofSize: 25))
     
     private let activityIndicator = UIActivityIndicatorView(style: .large)
     private var day: Bool = true
@@ -95,7 +95,7 @@ class MainViewController: UIViewController {
     private func setupNavigationBar() {
         let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshButtonhAction))
         let changeButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(changeButtonAction))
-        
+        navigationController?.navigationBar.tintColor = .white
         navigationItem.rightBarButtonItems = [refreshButton, changeButton]
     }
     
@@ -157,9 +157,9 @@ class MainViewController: UIViewController {
             guard let self = self else { return }
             
             DispatchQueue.main.async {
-                self.min = String(weather.main.tempMin)//.kelvinToCelsius())
-                self.max = String(weather.main.tempMax)//.kelvinToCelsius())
-                self.temp = String(weather.main.temp)//.kelvinToCelsius())
+                self.min = String(weather.main.tempMin.kelvinToCelsius())
+                self.max = String(weather.main.tempMax.kelvinToCelsius())
+                self.temp = String(weather.main.temp.kelvinToCelsius())
                 self.city = weather.name.uppercased()
                 self.date = self.setupDate(date: weather.dt) ?? ""
                 

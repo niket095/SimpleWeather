@@ -16,7 +16,7 @@ class WeatherNetwork {
     
     func fetchCurrentWeather(lat: String, long: String, completion: @escaping (CurrentWeatherModel) -> Void) {
        
-        let url = "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(long)&appid=\(API.apiKey)&lang=ru&units=metric"
+        let url = "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(long)&appid=\(API.apiKey)&lang=ru"
         
         guard let urlString = URL(string: url) else { fatalError() }
         let urlRequest = URLRequest(url: urlString)
@@ -36,7 +36,7 @@ class WeatherNetwork {
     
     func fetchCityWeather(cityName: String, completion: @escaping (CurrentWeatherModel) -> Void) {
        
-        let url = "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=\(API.apiKey)&lang=ru&units=metric"
+        let url = "https://api.openweathermap.org/data/2.5/weather?q=\(cityName)&appid=\(API.apiKey)&lang=ru"
         
         guard let urlString = URL(string: url) else { fatalError() }
         let urlRequest = URLRequest(url: urlString)
