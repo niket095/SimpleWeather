@@ -12,7 +12,7 @@ The Weather app is a simple and convenient tool for getting up—to-date weather
 
 ### The project uses:
 - Swift
-- Code layout (without storyBoard)
+- UIKit + Code layout (without storyBoard)
 - CoreLocation + [Openweathermap API](https://openweathermap.org)
 - iOS 13+
   
